@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lịch</title>
+    <link href="vendor/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="1.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    
+</head>
+<body>
+
+    <div class="khoi1">
+       <div class="nam" id="year"></div>
+       <div class="khoi2">
+           <button class="icontrai" onClick="back1()">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+           </button>  
+            <div class="thang" id="month"></div>
+            <button class="iconphai" onClick="next1()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button> 
+            <div class="lich2 ">
+              <span>MON</span>
+              <span>TUE</span>
+              <span>WED</span>
+              <span>THU</span>
+              <span>FRI</span>
+              <span>SAT</span>
+              <span>SUN</span>
+              
+            </div>
+            
+       </div>
+      <div id="hienthi" >
+            </div>
+
+    </div>
+    <div class="title"><p>Calendar <br>
+    By Nguyễn Đại</p></div>
+    <script type="text/javascript">
+    var nowDate=new Date();
+    var monthDay=new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+    var listMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'Junly', 'August', 'September','October', 'November','December' ];
+    var thisDate= nowDate.getDate();
+    var thisMonth= nowDate.getMonth();
+    var thisYear= nowDate.getFullYear();
+    var thisDay=nowDate.getDay();
+    if(thisYear %4==0){
+      monthDay[1]=29;
+    }
+     Day();
+     function next1(){
+
+    if(thisMonth==11){
+      thisMonth=0;
+      thisYear ++;
+    }else{
+      thisMonth++;
+    }
+
+       
+      Day();
+     }
+       function back1(){
+
+    if(thisMonth==0){
+      thisMonth=11;
+      thisYear --;
+    }else{
+      thisMonth--;
+    }
+
+       
+      Day();
+     }
+   function Day(){
+    
+    var dayNow= new Date();
+    var nowdate=dayNow.getDate();
+     var nowmonth=dayNow.getMonth();
+     var nowYear=dayNow.getFullYear()
+    var first_date = new Date(thisYear, thisMonth,0);
+    //console.log(thisYear);
+     var first_day = first_date.getDay(); 
+    
+     var html=""; 
+       
+       html += "<table>";
+       html +="<tr>"
+       for(var j=0;j<first_day;j++)
+       {
+        html +="<td id='abc'></td>";
+       }
+          var ngay=1;
+      while(ngay<=monthDay[thisMonth]){
+        for (var i=first_day;i<7;i++)
+        {
+          if(ngay<=monthDay[thisMonth]){
+             if(nowdate==ngay&& nowmonth==thisMonth&&nowYear==thisYear){
+                html +="<td class='mau'>"+ ngay+"</td>";
+             } else{
+              html+="<td>"+ ngay+"</td>";
+             }
+          }else{
+            html +="";
+          }
+          ngay++;
+        }
+        html +="</tr>";
+          first_day=0;
+      }
+      html +="</table>";
+       document.getElementById("hienthi").innerHTML=html;
+        document.getElementById("month").innerHTML = listMonth[thisMonth];
+        document.getElementById("year").innerHTML=thisYear;
+        
+
+      }
+    
+    </script>
+</body>
+</html>
