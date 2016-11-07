@@ -1,0 +1,66 @@
+*{margin:0;padding:0; }
+
+
+h3#ketQua {padding: 15px 2px;font-weight: 500;color: #999999;}
+
+button.bang {
+    width: 50px;
+    height: 50px;
+    background: #e4b524;
+    border: 1px;
+    color: white;
+    font-size: 33px;
+}
+
+button.num {
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
+    color: #999999;
+    border: none;
+}
+
+button.num:hover, .val:hover,.bang:hover {
+    background: gray;
+    border-color: gray;
+}
+
+button.val {
+    font-size: 18px;
+    width: 50px;
+    height: 40px;
+    color: #999999;
+    border: none;
+}
+body{
+    font-family: Times;
+}
+.input {
+    width: 210px;
+    height: 70px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    font-size: 21px;
+    background: #dce0c8;
+}
+
+.calculator {
+    width: 213px;
+    height: 325px;
+    margin: auto;
+    background: #f0f0f0;
+    padding-top: 0px;
+    border-radius: 10px;
+}
+
+.nen.container {
+    width: 420px;
+    height: 420px;
+    margin-top: 40px;
+    background: #424242;
+    margin: auto;
+    padding-top: 50px;
+}
+ 
+
+ 

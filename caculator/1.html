@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> May tinh </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  
+  
+  
+  <link rel="stylesheet" href="1.css">
+</head>
+<body >
+    <div class="nen container">
+      <div class="calculator">
+   
+        <table >
+          <tr>
+            <td colspan='4'><div class="input"  ><h3 id="ketQua">0</h3></div>
+          </tr>
+          <tr>
+            <td><button type="button"  class=" val" onClick="mcong()">M+</button></td>
+            <td><button type="button" class="val" onClick="mtru()" >M-</button></td>
+            <td><button type="button" id="mr" class=" val" onClick="todo()"  value="">MR</button></td>
+
+           <td><button type="button" class=" val" onClick="phepTinh(2)" >-</button></td>
+          </tr>
+          <tr>
+            <td><button type="button" class=" num"  onClick="maytinh(this.value);" value="7">7</button></td>
+            <td><button type="button" class=" num" onClick="maytinh(this.value);" value="8">8</button></td>
+            <td><button type="button" class=" num" onClick="maytinh(this.value);" value="9">9</button></td>
+           <td><button type="button" class=" num" onClick="phepTinh(4);">/ </button></td>
+          </tr>
+          <tr>
+            <td><button type="button" class=" num" onClick="maytinh(this.value);" value="4">4</button></td>
+            <td><button type="button" class=" num" onClick="maytinh(this.value);" value="5">5</button></td>
+            <td><button type="button" class=" num" onClick="maytinh(this.value);" value="6">6</button></td>
+             <td><button type="button" class=" num" onClick="phepTinh(3);">x</button></td>
+          </tr>
+          <tr>
+            <td><button type="button" class=" num" onClick="maytinh(this.value);" value="1">1</button></td>
+            <td><button type="button" class=" num" onClick="maytinh(this.value);" value="2">2</button></td>
+            <td><button type="button" class=" num" onClick="maytinh(this.value);" value="3">3</button></td>
+            <td><button type="button" class=" num" onClick="phepTinh(1);" >+</button></td>
+            
+          </tr>
+          <tr>
+            <td><button type="button" class=" num" onClick="maytinh(this.value);" value="0">0</button></td>
+            <td><button type="button" class=" num" onClick="maytinh(this.value);" value=".">.</button></td>
+            <td><button type="button" class=" num" onClick="clear1()">C</button></td>
+            <td ><button type="button" onClick="phepTinh(0)" class="bang">=</button></td>
+            
+          </tr>
+      </table>
+     
+      </div>
+
+    </div>
+    <script type="text/javascript" >
+ 
+
+var html=0;
+ var x=0;
+ var y=0;
+ var tamp=0;
+ var operation1=0;
+ var mr=0;
+ var test=document.getElementById("mr").value;
+  
+   function maytinh(val)
+  {
+    if(val==0&& html==0) {
+      return;
+    }else if(html==0){
+       html="";
+       html +=val;
+       document.getElementById("ketQua").innerHTML=html;
+    }else if(val==".")
+      {
+          if(html.search(/\./) > -1){ // chu y : "." = /\./
+          return;
+          }
+          else{
+            html +=".";
+           document.getElementById("ketQua").innerHTML=html;
+               }
+      }else{
+          html +=val;
+          document.getElementById("ketQua").innerHTML=html;
+          }
+   
+     tamp=Number(html);
+  }
+  function phepTinh(operation)
+  {
+    y=tamp;
+    switch(operation1)
+    {
+      case 0:{
+        x=y;
+        html=0;
+        maytinh(x);
+        html=0;
+        break;
+      }
+      case 1:
+      {
+        x +=y;
+        html=0;
+        maytinh(x);
+        html=0;
+        break;
+      }
+      case 2:
+      {
+         x =x-y;
+         html=0;
+         maytinh(x);
+         html=0;
+        break;
+      }
+      case 3:
+      {
+        x=x*y;
+        html=0;
+        maytinh(x);
+        html=0;
+        break;
+      }
+      case 4:
+      {
+        if(y==0)
+        {
+          document.getElementById("ketQua").innerHTML="loi";
+          break;
+        }else{
+          x=x/y;
+          html=0;
+          maytinh(x);
+          html=0;
+          break;
+        }
+      }
+      default:
+        document.getElementById("ketQua").innerHTML="loi";
+        break;
+    }
+    operation1=operation;
+   
+    
+ }
+function clear1()
+{
+   x=0;
+   y=0;
+   html=0;
+   tamp=0;
+   document.getElementById("ketQua").innerHTML="0";
+          
+  }
+function mr1()
+{
+  mr=tamp;
+  clear1();
+
+document.getElementById("mr").innerHTML="MC";
+}
+function mc1()
+{
+  mr=0;
+ clear1();
+document.getElementById("mr").innerHTML="MR";
+
+}
+function todo()
+{
+  if(mr==0)
+  {
+     mr1();
+  }
+ else  {
+  mc1();
+  // document.getElementById("mr").innerHTML="MR";
+}
+}
+ function mcong()
+ {
+  mr +=tamp;
+  document.getElementById("ketQua").innerHTML=mr;
+ }
+ function mtru()
+ {
+  mr -=tamp;
+  document.getElementById("ketQua").innerHTML=mr;
+ }
+
+
+
+
+  </script>
+</body>
+</html>
