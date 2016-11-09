@@ -18,9 +18,17 @@
             <td colspan='4'><div class="input"  ><h3 id="ketQua">0</h3></div>
           </tr>
           <tr>
+            <td><button type="button"  class=" val1" onClick="mc1()">MC</button></td>
+            <td><button type="button" class="val1" onClick="sqrt1()" >Sqrt</button></td>
+            <td><button type="button" id="mr" class=" val1" onClick="cell1()"  value="">Cell</button></td>
+
+           <td><button type="button" class=" val1" onClick="abs1()" >Abs</button></td>
+          </tr>
+          <tr>
+          <tr>
             <td><button type="button"  class=" val" onClick="mcong()">M+</button></td>
             <td><button type="button" class="val" onClick="mtru()" >M-</button></td>
-            <td><button type="button" id="mr" class=" val" onClick="todo()"  value="">MR</button></td>
+            <td><button type="button" id="mr" class=" val" onClick="mr1()"  value="">MR</button></td>
 
            <td><button type="button" class=" val" onClick="phepTinh(2)" >-</button></td>
           </tr>
@@ -159,43 +167,47 @@ function clear1()
   }
 function mr1()
 {
-  mr=tamp;
-  clear1();
- 
+  html=mr;
+ document.getElementById("ketQua").innerHTML=html;
 
-document.getElementById("mr").innerHTML="MC";
 }
+
 function mc1()
 {
   mr=0;
  clear1();
-document.getElementById("mr").innerHTML="MR";
-
-}
-function todo()
-{
-  if(mr==0)
-  {
-     mr1();
-  }
- else  {
-  mc1();
-  // document.getElementById("mr").innerHTML="MR";
-}
 }
  function mcong()
  {
-  tamp +=mr;
+ mr +=tamp;
   html=0;
-  document.getElementById("ketQua").innerHTML=tamp;
+
  }
  function mtru()
  {
-  tamp =mr-tamp;
-   html=0;
-  document.getElementById("ketQua").innerHTML=tamp;
- }
+  mr -=tamp;
+  html=0;
 
+ }
+ function sqrt1()
+ {
+ if(tamp<0){
+  document.getElementById("ketQua").innerHTML="loi";
+  return
+ }else{
+  maytinh(Math.sqrt(tamp));
+ }
+ 
+ }
+  function cell1()
+ {
+  maytinh(Math.round(tamp));
+ }
+ function abs1()
+ {
+  maytinh(Math.abs(tamp));
+ 
+ }
 
 
 
