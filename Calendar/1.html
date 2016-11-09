@@ -79,16 +79,22 @@
      var nowmonth=dayNow.getMonth();
      var nowYear=dayNow.getFullYear()
     var first_date = new Date(thisYear, thisMonth,0);
-    //console.log(thisYear);
+    
      var first_day = first_date.getDay(); 
+     var last_date= new Date(thisYear,thisMonth,30)
+     console.log(last_date);
     
      var html=""; 
        
        html += "<table>";
        html +="<tr>"
+       var dem=0;
        for(var j=0;j<first_day;j++)
        {
-        html +="<td id='abc'></td>";
+        
+        var ngaytruoc=monthDay[thisMonth-1]-first_day+ j+1;
+        html +="<td id='abc'><p>"+ngaytruoc+"</p></td>";
+        // dem=ngaytruoc;
        }
           var ngay=1;
       while(ngay<=monthDay[thisMonth]){
@@ -96,22 +102,29 @@
         {
           if(ngay<=monthDay[thisMonth]){
              if(nowdate==ngay&& nowmonth==thisMonth&&nowYear==thisYear){
-                html +="<td class='mau'>"+ ngay+"</td>";
+                html +="<td '><p class='mau'>"+ ngay+"</p></td>";
              } else{
-              html+="<td>"+ ngay+"</td>";
+              html+="<td><p>"+ ngay+"</p></td>";
              }
           }else{
             html +="";
           }
           ngay++;
         }
-        html +="</tr>";
+
+         html +="</tr>";
+        
           first_day=0;
       }
+      // for(var j=0;j<first_day;j++)
+      //   {
+      //     html +="<td>"+"</td>"
+      //   }
+
       html +="</table>";
        document.getElementById("hienthi").innerHTML=html;
-        document.getElementById("month").innerHTML = listMonth[thisMonth];
-        document.getElementById("year").innerHTML=thisYear;
+        document.getElementById("month").innerHTML ="<p>"+listMonth[thisMonth];+"<p>" ;
+        document.getElementById("year").innerHTML="<p>"+thisYear+"<p>";
         
 
       }

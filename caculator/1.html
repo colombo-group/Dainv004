@@ -161,6 +161,7 @@ function mr1()
 {
   mr=tamp;
   clear1();
+ 
 
 document.getElementById("mr").innerHTML="MC";
 }
@@ -184,13 +185,15 @@ function todo()
 }
  function mcong()
  {
-  mr +=tamp;
-  document.getElementById("ketQua").innerHTML=mr;
+  tamp +=mr;
+  html=0;
+  document.getElementById("ketQua").innerHTML=tamp;
  }
  function mtru()
  {
-  mr -=tamp;
-  document.getElementById("ketQua").innerHTML=mr;
+  tamp =mr-tamp;
+   html=0;
+  document.getElementById("ketQua").innerHTML=tamp;
  }
 
 
